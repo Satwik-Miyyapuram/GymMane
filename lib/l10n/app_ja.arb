@@ -1262,7 +1262,7 @@
   "nutritionBandUnknown": "Single days are noise — only this average counts.",
   "nutritionWeighHint": "Today kg (before food)",
   "nutritionLog": "Log",
-  "nutritionGroceryTitle": "14-day plan quantities",
+  "nutritionGroceryTitle": "This week's plan quantities",
   "nutritionSwitchFallback": "Switch 1800 ↔ 1900 fallback",
   "nutritionMacroTargets": "Macro targets",
   "nutritionPlanNote": "Grams are raw/dry. Oil is weighed. Steppers edit the plan itself.",

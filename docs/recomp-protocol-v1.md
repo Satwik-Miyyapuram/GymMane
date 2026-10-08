@@ -286,6 +286,8 @@ Rules: the Wednesday finisher walk, post-training walks and judo-day walking cou
 
 ## 7. Grocery list, 14-day cycle — every price checked 2026-10-08
 
+Shopping cadence switched to weekly on 2026-10-08; use half the quantities below per shop.
+
 Batch architecture: **2 cooking sessions/week** (Sun + Wed, ~50–60 min each): chicken ×14 portions, pasta sauce base ×2, rice+lentils cooked fresh Sun/Wed (2-day rule), veg from freezer (no prep), breakfast/snack assembled daily in <5 min.
 
 | Ingredient | 14-day qty | Unit price | Source (checked 2026-10-08) | Cost |
