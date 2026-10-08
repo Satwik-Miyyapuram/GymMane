@@ -43,12 +43,39 @@ android {
     }
 
     if (keystorePropertiesFile.exists()) {
+        // key.properties exists -> we are in a release build that should be signed.
+        // Validate all required fields and fail fast with a clear message if
+        // anything is missing, instead of falling back to debug signing.
+        val storeFileProp = (keystoreProperties["storeFile"] as String?)?.trim()
+        val storePasswordProp = (keystoreProperties["storePassword"] as String?)?.trim()
+        val keyAliasProp = (keystoreProperties["keyAlias"] as String?)?.trim()
+        val keyPasswordProp = (keystoreProperties["keyPassword"] as String?)?.trim()
+        val missing = mutableListOf<String>()
+        if (storeFileProp.isNullOrEmpty()) missing += "storeFile"
+        if (storePasswordProp.isNullOrEmpty()) missing += "storePassword"
+        if (keyAliasProp.isNullOrEmpty()) missing += "keyAlias"
+        if (keyPasswordProp.isNullOrEmpty()) missing += "keyPassword"
+        if (missing.isNotEmpty()) {
+            throw GradleException("key.properties is missing required properties: ${missing.joinToString(", ")}. Check Set up signing step and ensure secrets KEYSTORE_PASSWORD, KEY_PASSWORD, KEY_ALIAS are set.")
+        }
+        // storeFile in key.properties is "gymmane-release.jks" and the actual
+        // file is at android/app/gymmane-release.jks. rootProject is android,
+        // so rootProject.file("app/<name>") locates it correctly.
+        // Using file(...) alone in Kotlin DSL can resolve relative to the wrong
+        // project (SigningConfig receiver ambiguity), so we try both.
+        val storeFileResolved = run {
+            val f1 = rootProject.file("app/$storeFileProp")
+            if (f1.exists()) f1 else file(storeFileProp!!)
+        }
+        if (!storeFileResolved.exists()) {
+            throw GradleException("Keystore file not found: $storeFileResolved (resolved from storeFile=$storeFileProp). Expected at android/app/$storeFileProp. Check that Set up signing correctly decoded KEYSTORE_BASE64.")
+        }
         signingConfigs {
             create("release") {
-                keyAlias = keystoreProperties["keyAlias"] as String
-                keyPassword = keystoreProperties["keyPassword"] as String
-                storeFile = keystoreProperties["storeFile"]?.let { file(it) }
-                storePassword = keystoreProperties["storePassword"] as String
+                keyAlias = keyAliasProp!!
+                keyPassword = keyPasswordProp!!
+                storeFile = storeFileResolved
+                storePassword = storePasswordProp!!
             }
         }
     }
@@ -56,6 +83,9 @@ android {
     buildTypes {
         release {
             signingConfig = if (keystorePropertiesFile.exists()) {
+                // If key.properties exists but signingConfigs.release was not created
+                // due to validation above, this will throw and fail fast with the
+                // message from above, rather than silently using debug.
                 signingConfigs.getByName("release")
             } else {
                 signingConfigs.getByName("debug")

@@ -123,13 +123,49 @@ jobs:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
         run: |
-          echo "$KEYSTORE_BASE64" | base64 -d > android/app/gymmane-release.jks
+          set -euo pipefail
+          # Validate that all signing secrets are present (without printing values).
+          missing=""
+          if [ -z "${KEYSTORE_BASE64:-}" ]; then missing="$missing KEYSTORE_BASE64"; fi
+          if [ -z "${KEYSTORE_PASSWORD:-}" ]; then missing="$missing KEYSTORE_PASSWORD"; fi
+          if [ -z "${KEY_PASSWORD:-}" ]; then missing="$missing KEY_PASSWORD"; fi
+          if [ -z "${KEY_ALIAS:-}" ]; then missing="$missing KEY_ALIAS"; fi
+          if [ -n "$missing" ]; then
+            echo "::error::Missing signing secrets:$missing. Configure them in Settings → Secrets and variables → Actions."
+            echo "The release job requires a release keystore to produce signed APKs."
+            echo "Without it the build would fall back to debug signing, which is not suitable for a release."
+            exit 1
+          fi
+          # Decode keystore robustly (printf avoids trailing newline issues, --decode handles no-wrap).
+          printf "%s" "$KEYSTORE_BASE64" | base64 --decode > android/app/gymmane-release.jks
+          if [ ! -s android/app/gymmane-release.jks ]; then
+            echo "::error::Decoded keystore is empty. Check that KEYSTORE_BASE64 is valid base64 of a .jks file."
+            exit 1
+          fi
+          # Quick sanity check with keytool (without exposing passwords in logs).
+          if ! keytool -list -keystore android/app/gymmane-release.jks -storepass "$KEYSTORE_PASSWORD" -alias "$KEY_ALIAS" >/dev/null 2>&1; then
+            echo "::warning::keytool could not list the keystore with the provided alias/password. The Gradle build will verify signing; this is just a pre-check."
+            # Also try listing without alias to see if keystore itself is valid.
+            if ! keytool -list -keystore android/app/gymmane-release.jks -storepass "$KEYSTORE_PASSWORD" >/dev/null 2>&1; then
+              echo "::error::Keystore failed validation with keytool. Check KEYSTORE_PASSWORD and that KEYSTORE_BASE64 is correct."
+              # Don't exit here; let Gradle give the detailed error, but warn.
+            fi
+          fi
           cat > android/key.properties <<EOF
           storePassword=$KEYSTORE_PASSWORD
           keyPassword=$KEY_PASSWORD
           keyAlias=$KEY_ALIAS
           storeFile=gymmane-release.jks
           EOF
+          if [ ! -s android/key.properties ]; then
+            echo "::error::Failed to write android/key.properties"
+            exit 1
+          fi
+          echo "Signing files created:"
+          ls -lh android/app/gymmane-release.jks android/key.properties
+          # Mask passwords in log
+          echo "key.properties (passwords masked):"
+          sed -E 's/(storePassword|keyPassword)=.*/\1=***/' android/key.properties
 
       # Reproducible build: version name AND code come entirely from pubspec.yaml
       # (1.0.0+1), exactly like F-Droid builds it. Do NOT pass --build-name or
