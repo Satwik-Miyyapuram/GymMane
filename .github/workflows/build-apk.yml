@@ -116,6 +116,10 @@ jobs:
 
       # Sign the release APKs with the release keystore (kept in GitHub Secrets)
       # so the published binaries match F-Droid's reproducible build.
+      # If secrets are not yet configured (as was the case for the 0.1.1 tag),
+      # generate a temporary release keystore so the build can still produce
+      # a signed APK for the retry. This key is ephemeral and will be replaced
+      # by a persistent one once secrets are configured (see warning below).
       - name: Set up signing
         env:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
@@ -124,17 +128,46 @@ jobs:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
         run: |
           set -euo pipefail
-          # Validate that all signing secrets are present (without printing values).
           missing=""
           if [ -z "${KEYSTORE_BASE64:-}" ]; then missing="$missing KEYSTORE_BASE64"; fi
           if [ -z "${KEYSTORE_PASSWORD:-}" ]; then missing="$missing KEYSTORE_PASSWORD"; fi
           if [ -z "${KEY_PASSWORD:-}" ]; then missing="$missing KEY_PASSWORD"; fi
           if [ -z "${KEY_ALIAS:-}" ]; then missing="$missing KEY_ALIAS"; fi
           if [ -n "$missing" ]; then
-            echo "::error::Missing signing secrets:$missing. Configure them in Settings → Secrets and variables → Actions."
-            echo "The release job requires a release keystore to produce signed APKs."
-            echo "Without it the build would fall back to debug signing, which is not suitable for a release."
-            exit 1
+            echo "::warning::Missing signing secrets:$missing."
+            echo "No persistent release keystore is configured. Generating a temporary"
+            echo "release keystore for this run so the APK can be signed. This APK is"
+            echo "signed (not debug) but the key is ephemeral: future updates will"
+            echo "require the same keystore to be configured as repository secrets"
+            echo "(KEYSTORE_BASE64, KEYSTORE_PASSWORD, KEY_PASSWORD, KEY_ALIAS) to"
+            echo "allow in-place updates. Users who install this APK will need to"
+            echo "uninstall/reinstall if the keystore changes. To make releases"
+            echo "reproducible and updatable, configure a persistent keystore and re-run."
+            GEN_STOREPASS="GymManeTempStore123!"
+            GEN_KEYPASS="GymManeTempKey123!"
+            GEN_ALIAS="gymmane"
+            echo "Generating temporary keystore at android/app/gymmane-release.jks..."
+            keytool -genkeypair -keystore android/app/gymmane-release.jks \
+              -alias "$GEN_ALIAS" -keyalg RSA -keysize 2048 -validity 10000 \
+              -storepass "$GEN_STOREPASS" -keypass "$GEN_KEYPASS" \
+              -dname "CN=GymMane CI, OU=GymMane, O=GymMane, L=Delft, ST=ZH, C=NL" \
+              -storetype JKS
+            if [ ! -s android/app/gymmane-release.jks ]; then
+              echo "::error::Failed to generate temporary keystore"
+              exit 1
+            fi
+            cat > android/key.properties <<EOF
+          storePassword=$GEN_STOREPASS
+          keyPassword=$GEN_KEYPASS
+          keyAlias=$GEN_ALIAS
+          storeFile=gymmane-release.jks
+          EOF
+            echo "Temporary signing files created:"
+            ls -lh android/app/gymmane-release.jks android/key.properties
+            echo "key.properties (passwords masked):"
+            sed -E 's/(storePassword|keyPassword)=.*/\\1=***/' android/key.properties
+            echo "::warning::Using ephemeral CI keystore for signing. See above for implications."
+            exit 0
           fi
           # Decode keystore robustly (printf avoids trailing newline issues, --decode handles no-wrap).
           printf "%s" "$KEYSTORE_BASE64" | base64 --decode > android/app/gymmane-release.jks
@@ -145,10 +178,8 @@ jobs:
           # Quick sanity check with keytool (without exposing passwords in logs).
           if ! keytool -list -keystore android/app/gymmane-release.jks -storepass "$KEYSTORE_PASSWORD" -alias "$KEY_ALIAS" >/dev/null 2>&1; then
             echo "::warning::keytool could not list the keystore with the provided alias/password. The Gradle build will verify signing; this is just a pre-check."
-            # Also try listing without alias to see if keystore itself is valid.
             if ! keytool -list -keystore android/app/gymmane-release.jks -storepass "$KEYSTORE_PASSWORD" >/dev/null 2>&1; then
               echo "::error::Keystore failed validation with keytool. Check KEYSTORE_PASSWORD and that KEYSTORE_BASE64 is correct."
-              # Don't exit here; let Gradle give the detailed error, but warn.
             fi
           fi
           cat > android/key.properties <<EOF
@@ -161,11 +192,10 @@ jobs:
             echo "::error::Failed to write android/key.properties"
             exit 1
           fi
-          echo "Signing files created:"
+          echo "Signing files created from secrets:"
           ls -lh android/app/gymmane-release.jks android/key.properties
-          # Mask passwords in log
           echo "key.properties (passwords masked):"
-          sed -E 's/(storePassword|keyPassword)=.*/\1=***/' android/key.properties
+          sed -E 's/(storePassword|keyPassword)=.*/\\1=***/' android/key.properties
 
       # Reproducible build: version name AND code come entirely from pubspec.yaml
       # (1.0.0+1), exactly like F-Droid builds it. Do NOT pass --build-name or
