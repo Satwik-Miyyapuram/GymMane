@@ -130,3 +130,23 @@ two lines instead of three.
 
 Nunito, by the Nunito Project Authors, under the SIL Open Font License
 (`assets/fonts/Nunito-OFL.txt`).
+
+## Nutrition module (nutrition-local branch)
+
+The nutrition module (`lib/models/nutrition.dart`,
+`lib/state/nutrition_state.dart`, `lib/screens/nutrition_screen.dart`) was
+written for this fork and is licensed under GPL-3.0-only like the rest of the
+app.
+
+**Food composition constants** in the seed set are rounded values aligned with
+the USDA FoodData Central (public domain, United States Government work) and
+the Dutch NEVO food composition tables (CC-BY 4.0, RIVM / Voedingscentrum).
+No database is bundled — only the handful of per-100 g constants needed for
+the seeded meal plan, entered by hand.
+
+**Seed meal plan** ("Recomp Protocol v1.0") is user data applied once on
+first launch; it is editable in-app and never re-applied over user edits.
+
+This fork retains the attribution required by `ADDITIONAL_TERMS.md`:
+
+> Based on GymMane by InlitX

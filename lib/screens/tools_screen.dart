@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 
 import '../catalog/exercise_catalog.dart';
 import '../l10n/l10n.dart';
@@ -31,6 +32,38 @@ class ToolsScreen extends StatelessWidget {
               subtitle: t.calculatorsCount(kToolMeta.length),
             ),
             const SizedBox(height: 22),
+            Pressable(
+              onTap: fit.goNutrition,
+              scale: 0.97,
+              child: Container(
+                padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+                decoration: BoxDecoration(
+                  color: gc.bgRaised,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(t.nutrition,
+                              style: AppTheme.f(14.5, color: gc.text)),
+                          const SizedBox(height: 2),
+                          Text(t.nutritionEntry,
+                              style: AppTheme.f(11.5,
+                                  weight: FontWeight.w500,
+                                  color: gc.textSecondary)),
+                        ],
+                      ),
+                    ),
+                    Icon(PhosphorIconsRegular.caretRight,
+                        color: gc.textSecondary, size: 16),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
             GridView.count(
               crossAxisCount: 2,
               shrinkWrap: true,

@@ -940,7 +940,6 @@
   "logWorkoutAction": "ЗАПИСАТИ ТРЕНУВАННЯ",
   "logging": "ЗАПИС",
   "placesLabel": "Мої місця",
-
   "keepScreenOn": "Не вимикати екран під час тренування",
   "lockWorkout": "Заблокувати екран",
   "unlockWorkout": "Розблокувати",
@@ -1065,30 +1064,24 @@
   "stickerSaved": "Збережено в галерею",
   "stickerWeek": "Цей тиждень",
   "getReady": "Приготуйтеся",
-
   "stickerGallery": "Галерея",
   "stickerCamera": "Камера",
   "shareIntroTitle": "Поділіться цією програмою",
   "shareIntroBody": "Надішліть її партнеру, другу чи родині. Вони отримають невеликий файл, який відкривається в GymMane і додає програму одним дотиком, разом із підходами та вагами.",
   "removedFromRoutine": "Прибрано з програми",
-
   "radarTitle": "Останні 30 днів",
   "radarHint": "Подивіться, яким зонам потрібно більше роботи",
   "radarEmpty": "Потренуйтеся кілька днів, щоб побачити баланс",
   "radarBalanced": "Поки що все збалансовано",
   "radarFocus": "Потрібно більше: {list}",
-
   "countdownReady": "Приготуйтеся",
   "countdownSkip": "Торкніться, щоб почати одразу",
   "countdownSetting": "Зворотний відлік перед стартом",
-
   "effortSetting": "Відмічати зусилля",
   "effortHint": "RPE: 10 — більше жодного повторення, 8 — залишалося два. RIR — скільки повторень залишалося в запасі. Якщо підхід має оцінку, 1ПМ рахується за таблицею RPE.",
   "rirHint": "0 — більше жодного повторення, 2 — залишалося два.",
   "addWeekWidget": "Додати віджет тижня",
-
   "gamificationSetting": "Медалі та рівні",
-
   "repCount": "{n, plural, one{{n} повтор} few{{n} повтори} many{{n} повторів} other{{n} повтору}}",
   "prBestSet": "Найкращий підхід",
   "weekStartSetting": "Тиждень починається з",
@@ -1248,5 +1241,30 @@
   "trainReminderRowHint": "Нагадування в дні тренувань.",
   "alarmSoundRowHint": "Що звучить наприкінці відпочинку.",
   "alarmStyleRowHint": "Чи дзвонить у беззвучному режимі.",
-  "recommendedRowHint": "Вправи, які ми пропонуємо на головній."
+  "recommendedRowHint": "Вправи, які ми пропонуємо на головній.",
+  "nutrition": "Nutrition",
+  "nutritionEntry": "Meals, macros, grocery list",
+  "nutritionPlan": "Plan",
+  "nutritionTrend": "Trend",
+  "nutritionGrocery": "Grocery",
+  "nutritionAvg14": "14-day moving average",
+  "nutritionNeedDays": "Need {n} more logged days",
+  "@nutritionNeedDays": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "nutritionBandRecomp": "In the recomp band (±0.4 kg): change nothing.",
+  "nutritionBandCut": "Down >0.5 kg: consider the 1,900 fallback.",
+  "nutritionBandGain": "Up >0.5 kg: if strength is up, accept it.",
+  "nutritionBandUnknown": "Single days are noise — only this average counts.",
+  "nutritionWeighHint": "Today kg (before food)",
+  "nutritionLog": "Log",
+  "nutritionGroceryTitle": "14-day plan quantities",
+  "nutritionSwitchFallback": "Switch 1800 ↔ 1900 fallback",
+  "nutritionMacroTargets": "Macro targets",
+  "nutritionPlanNote": "Grams are raw/dry. Oil is weighed. Steppers edit the plan itself.",
+  "nutritionFibre": "Fibre"
 }

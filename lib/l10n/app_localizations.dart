@@ -6033,6 +6033,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exercises we suggest on Home.'**
   String get recommendedRowHint;
+
+  /// No description provided for @nutrition.
+  ///
+  /// In en, this message translates to:
+  /// **'Nutrition'**
+  String get nutrition;
+
+  /// No description provided for @nutritionEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Meals, macros, grocery list'**
+  String get nutritionEntry;
+
+  /// No description provided for @nutritionPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan'**
+  String get nutritionPlan;
+
+  /// No description provided for @nutritionTrend.
+  ///
+  /// In en, this message translates to:
+  /// **'Trend'**
+  String get nutritionTrend;
+
+  /// No description provided for @nutritionGrocery.
+  ///
+  /// In en, this message translates to:
+  /// **'Grocery'**
+  String get nutritionGrocery;
+
+  /// No description provided for @nutritionAvg14.
+  ///
+  /// In en, this message translates to:
+  /// **'14-day moving average'**
+  String get nutritionAvg14;
+
+  /// No description provided for @nutritionNeedDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Need {n} more logged days'**
+  String nutritionNeedDays(String n);
+
+  /// No description provided for @nutritionBandRecomp.
+  ///
+  /// In en, this message translates to:
+  /// **'In the recomp band (±0.4 kg): change nothing.'**
+  String get nutritionBandRecomp;
+
+  /// No description provided for @nutritionBandCut.
+  ///
+  /// In en, this message translates to:
+  /// **'Down >0.5 kg: consider the 1,900 fallback.'**
+  String get nutritionBandCut;
+
+  /// No description provided for @nutritionBandGain.
+  ///
+  /// In en, this message translates to:
+  /// **'Up >0.5 kg: if strength is up, accept it.'**
+  String get nutritionBandGain;
+
+  /// No description provided for @nutritionBandUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Single days are noise — only this average counts.'**
+  String get nutritionBandUnknown;
+
+  /// No description provided for @nutritionWeighHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Today kg (before food)'**
+  String get nutritionWeighHint;
+
+  /// No description provided for @nutritionLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Log'**
+  String get nutritionLog;
+
+  /// No description provided for @nutritionGroceryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'14-day plan quantities'**
+  String get nutritionGroceryTitle;
+
+  /// No description provided for @nutritionSwitchFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch 1800 ↔ 1900 fallback'**
+  String get nutritionSwitchFallback;
+
+  /// No description provided for @nutritionMacroTargets.
+  ///
+  /// In en, this message translates to:
+  /// **'Macro targets'**
+  String get nutritionMacroTargets;
+
+  /// No description provided for @nutritionPlanNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Grams are raw/dry. Oil is weighed. Steppers edit the plan itself.'**
+  String get nutritionPlanNote;
+
+  /// No description provided for @nutritionFibre.
+  ///
+  /// In en, this message translates to:
+  /// **'Fibre'**
+  String get nutritionFibre;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

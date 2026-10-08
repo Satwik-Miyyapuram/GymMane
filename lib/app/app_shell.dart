@@ -15,6 +15,7 @@ import '../screens/home_screen.dart';
 import '../screens/measures_screen.dart';
 import '../screens/note_edit_screen.dart';
 import '../screens/notes_screen.dart';
+import '../screens/nutrition_screen.dart';
 import '../screens/onboarding_screen.dart';
 import '../screens/places_screen.dart';
 import '../screens/plan_import_sheet.dart';
@@ -403,6 +404,8 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
         return CompareScreen();
       case 'notes':
         return NotesScreen();
+      case 'nutrition':
+        return NutritionScreen();
       case 'note-edit':
         return NoteEditScreen(key: ValueKey(fit.editingNoteId ?? 'new'));
       case 'home':

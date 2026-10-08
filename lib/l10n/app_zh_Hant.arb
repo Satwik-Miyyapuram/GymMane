@@ -940,7 +940,6 @@
   "logWorkoutAction": "記錄訓練",
   "logging": "記錄中",
   "placesLabel": "我的地點",
-
   "keepScreenOn": "訓練時保持螢幕開啟",
   "lockWorkout": "鎖定螢幕",
   "unlockWorkout": "解鎖",
@@ -1065,30 +1064,24 @@
   "stickerSaved": "已儲存到相簿",
   "stickerWeek": "本週",
   "getReady": "準備",
-
   "stickerGallery": "相簿",
   "stickerCamera": "相機",
   "shareIntroTitle": "分享這個課表",
   "shareIntroBody": "傳給你的伴侶、朋友或家人。他們會收到一個小檔案，用 GymMane 開啟，一點就能加入，組數和重量都在。",
   "removedFromRoutine": "已從課表移除",
-
   "radarTitle": "最近 30 天",
   "radarHint": "看看哪些部位需要多練",
   "radarEmpty": "練幾天就能看到你的均衡情況",
   "radarBalanced": "目前很均衡",
   "radarFocus": "需要多練：{list}",
-
   "countdownReady": "準備",
   "countdownSkip": "點一下立即開始",
   "countdownSetting": "開始前倒數",
-
   "effortSetting": "記錄每組強度",
   "effortHint": "RPE：10 表示一次都做不動了，8 表示還能再做兩次。RIR 表示還剩幾次。記錄後，估算 1RM 會使用 RPE 表。",
   "rirHint": "0 表示一次都做不動了，2 表示還能再做兩次。",
   "addWeekWidget": "新增本週小工具",
-
   "gamificationSetting": "獎牌和等級",
-
   "repCount": "{n, plural, =1{{n} 次} other{{n} 次}}",
   "prBestSet": "最佳一組",
   "weekStartSetting": "每週開始於",
@@ -1248,5 +1241,30 @@
   "trainReminderRowHint": "訓練日提醒你。",
   "alarmSoundRowHint": "休息結束時的聲音。",
   "alarmStyleRowHint": "靜音模式下是否響鈴。",
-  "recommendedRowHint": "首頁推薦的動作。"
+  "recommendedRowHint": "首頁推薦的動作。",
+  "nutrition": "Nutrition",
+  "nutritionEntry": "Meals, macros, grocery list",
+  "nutritionPlan": "Plan",
+  "nutritionTrend": "Trend",
+  "nutritionGrocery": "Grocery",
+  "nutritionAvg14": "14-day moving average",
+  "nutritionNeedDays": "Need {n} more logged days",
+  "@nutritionNeedDays": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "nutritionBandRecomp": "In the recomp band (±0.4 kg): change nothing.",
+  "nutritionBandCut": "Down >0.5 kg: consider the 1,900 fallback.",
+  "nutritionBandGain": "Up >0.5 kg: if strength is up, accept it.",
+  "nutritionBandUnknown": "Single days are noise — only this average counts.",
+  "nutritionWeighHint": "Today kg (before food)",
+  "nutritionLog": "Log",
+  "nutritionGroceryTitle": "14-day plan quantities",
+  "nutritionSwitchFallback": "Switch 1800 ↔ 1900 fallback",
+  "nutritionMacroTargets": "Macro targets",
+  "nutritionPlanNote": "Grams are raw/dry. Oil is weighed. Steppers edit the plan itself.",
+  "nutritionFibre": "Fibre"
 }

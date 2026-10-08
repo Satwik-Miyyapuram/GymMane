@@ -940,7 +940,6 @@
   "logWorkoutAction": "ANTRENMANI KAYDET",
   "logging": "KAYIT",
   "placesLabel": "Yerlerim",
-
   "keepScreenOn": "Antrenman sırasında ekranı açık tut",
   "lockWorkout": "Ekranı kilitle",
   "unlockWorkout": "Kilidi aç",
@@ -1065,30 +1064,24 @@
   "stickerSaved": "Galeriye kaydedildi",
   "stickerWeek": "Bu hafta",
   "getReady": "Hazırlan",
-
   "stickerGallery": "Galeri",
   "stickerCamera": "Kamera",
   "shareIntroTitle": "Bu programı paylaş",
   "shareIntroBody": "Partnerine, bir arkadaşına ya da ailene gönder. GymMane ile açılan küçük dosyayı, setleri ve ağırlıklarıyla birlikte tek dokunuşla ekleyebilirler.",
   "removedFromRoutine": "Programdan çıkarıldı",
-
   "radarTitle": "Son 30 gün",
   "radarHint": "Hangi bölgelerin daha fazla çalışmaya ihtiyacı olduğunu gör",
   "radarEmpty": "Dengeni görmek için birkaç gün çalış",
   "radarBalanced": "Şimdilik dengeli",
   "radarFocus": "Daha fazlası gerek: {list}",
-
   "countdownReady": "Hazırlan",
   "countdownSkip": "Hemen başlamak için dokun",
   "countdownSetting": "Başlamadan önce geri sayım",
-
   "effortSetting": "Eforu kaydet",
   "effortHint": "RPE: 10 bir tekrar daha yapamamak, 8 iki tekrar daha yapabilmek demek. RIR kalan tekrarları sayar. Sette varsa tahmini 1RM, RPE tablosunu kullanır.",
   "rirHint": "0 bir tekrar daha yapamamak, 2 iki tekrar daha yapabilmek demek.",
   "addWeekWidget": "Hafta widget'ı ekle",
-
   "gamificationSetting": "Madalyalar ve seviyeler",
-
   "repCount": "{n, plural, =1{{n} tekrar} other{{n} tekrar}}",
   "prBestSet": "En iyi set",
   "weekStartSetting": "Hafta başlangıcı",
@@ -1248,5 +1241,30 @@
   "trainReminderRowHint": "Antrenman günlerinde bir hatırlatma.",
   "alarmSoundRowHint": "Dinlenme bitince çalan ses.",
   "alarmStyleRowHint": "Sessiz modda çalıp çalmayacağı.",
-  "recommendedRowHint": "Ana sayfada önerdiğimiz egzersizler."
+  "recommendedRowHint": "Ana sayfada önerdiğimiz egzersizler.",
+  "nutrition": "Nutrition",
+  "nutritionEntry": "Meals, macros, grocery list",
+  "nutritionPlan": "Plan",
+  "nutritionTrend": "Trend",
+  "nutritionGrocery": "Grocery",
+  "nutritionAvg14": "14-day moving average",
+  "nutritionNeedDays": "Need {n} more logged days",
+  "@nutritionNeedDays": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "nutritionBandRecomp": "In the recomp band (±0.4 kg): change nothing.",
+  "nutritionBandCut": "Down >0.5 kg: consider the 1,900 fallback.",
+  "nutritionBandGain": "Up >0.5 kg: if strength is up, accept it.",
+  "nutritionBandUnknown": "Single days are noise — only this average counts.",
+  "nutritionWeighHint": "Today kg (before food)",
+  "nutritionLog": "Log",
+  "nutritionGroceryTitle": "14-day plan quantities",
+  "nutritionSwitchFallback": "Switch 1800 ↔ 1900 fallback",
+  "nutritionMacroTargets": "Macro targets",
+  "nutritionPlanNote": "Grams are raw/dry. Oil is weighed. Steppers edit the plan itself.",
+  "nutritionFibre": "Fibre"
 }

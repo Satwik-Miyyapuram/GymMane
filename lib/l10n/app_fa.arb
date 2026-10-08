@@ -1444,19 +1444,37 @@
   "addWeekWidget": "افزودن ویجت هفته",
   "gamificationSetting": "مدال‌ها و سطوح",
   "repCount": "{n, plural, =1{۱ تکرار} other{{n} تکرار}}",
-  "@repCount": {"placeholders": {"n": {"type": "int"}}},
+  "@repCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "prBestSet": "بهترین ست",
   "weekStartSetting": "شروع هفته",
   "stepOutOfWorkout": "مکث و خروج",
   "saveToRoutine": "ذخیره تغییرات در روتین",
   "routineUpdated": "روتین به‌روز شد",
   "saveChangesTitle": "تغییرات «{name}» ذخیره شود؟",
-  "@saveChangesTitle": {"placeholders": {"name": {"type": "String"}}},
+  "@saveChangesTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "saveChangesBody": "دفعه بعد که شروعش کنی، روتین این تغییرات را خواهد داشت.",
   "routineOrderChanged": "ترتیب جدید حرکات",
   "mineOnly": "ساخته خودت",
   "createNamed": "اینجا نیست؟ «{name}» را بساز",
-  "@createNamed": {"placeholders": {"name": {"type": "String"}}},
+  "@createNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "orStartWith": "یا شروع با",
   "warmupFocus": "گرم کردن",
   "warmupFocusHint": "تحرک و فعال‌سازی، با وسیله یا بدون آن",
@@ -1480,16 +1498,52 @@
   "multiPlanSetting": "چند روتین در روز",
   "multiPlanHint": "هر روتین این روز را لمس کن. به ترتیبی که اضافه می‌کنی می‌آیند.",
   "routineOfDay": "{n} از {total} امروز",
-  "@routineOfDay": {"placeholders": {"n": {"type": "int"}, "total": {"type": "int"}}},
+  "@routineOfDay": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "nextToday": "بعدی امروز",
   "planAboutMe": "درباره من:",
   "planBody": "{sex}، {age} ساله، قد {height}، وزن {weight}.",
-  "@planBody": {"placeholders": {"sex": {"type": "String"}, "age": {"type": "int"}, "height": {"type": "String"}, "weight": {"type": "String"}}},
+  "@planBody": {
+    "placeholders": {
+      "sex": {
+        "type": "String"
+      },
+      "age": {
+        "type": "int"
+      },
+      "height": {
+        "type": "String"
+      },
+      "weight": {
+        "type": "String"
+      }
+    }
+  },
   "planDays": "می‌خواهم هفته‌ای {n} روز تمرین کنم.",
-  "@planDays": {"placeholders": {"n": {"type": "int"}}},
+  "@planDays": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "planNoHistory": "هنوز تمرینی ثبت نشده: من را مبتدی حساب کن و حجم و وزن‌ها را محافظه‌کارانه نگه دار.",
   "planHistory": "{n, plural, =1{۱ تمرین در ۳۰ روز اخیر ثبت شده.} other{{n} تمرین در ۳۰ روز اخیر ثبت شده.}}",
-  "@planHistory": {"placeholders": {"n": {"type": "int"}}},
+  "@planHistory": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "planBestLifts": "بهترین ست‌های اخیر",
   "planAskFirst": "اگر هدفم (قدرت، عضله، چربی‌سوزی یا آمادگی عمومی) یا مدت هر جلسه را نمی‌دانی، اول در یک پیام کوتاه بپرس. وقتی داشتی، فقط با JSON جواب بده.",
   "backToTop": "بازگشت به بالا",
@@ -1609,5 +1663,30 @@
   "trainReminderRowHint": "یادآوری در روزهای تمرین.",
   "alarmSoundRowHint": "صدایی که پایان استراحت پخش می‌شود.",
   "alarmStyleRowHint": "آیا در حالت بی‌صدا زنگ بزند.",
-  "recommendedRowHint": "حرکت‌هایی که در خانه پیشنهاد می‌دهیم."
+  "recommendedRowHint": "حرکت‌هایی که در خانه پیشنهاد می‌دهیم.",
+  "nutrition": "Nutrition",
+  "nutritionEntry": "Meals, macros, grocery list",
+  "nutritionPlan": "Plan",
+  "nutritionTrend": "Trend",
+  "nutritionGrocery": "Grocery",
+  "nutritionAvg14": "14-day moving average",
+  "nutritionNeedDays": "Need {n} more logged days",
+  "@nutritionNeedDays": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "nutritionBandRecomp": "In the recomp band (±0.4 kg): change nothing.",
+  "nutritionBandCut": "Down >0.5 kg: consider the 1,900 fallback.",
+  "nutritionBandGain": "Up >0.5 kg: if strength is up, accept it.",
+  "nutritionBandUnknown": "Single days are noise — only this average counts.",
+  "nutritionWeighHint": "Today kg (before food)",
+  "nutritionLog": "Log",
+  "nutritionGroceryTitle": "14-day plan quantities",
+  "nutritionSwitchFallback": "Switch 1800 ↔ 1900 fallback",
+  "nutritionMacroTargets": "Macro targets",
+  "nutritionPlanNote": "Grams are raw/dry. Oil is weighed. Steppers edit the plan itself.",
+  "nutritionFibre": "Fibre"
 }

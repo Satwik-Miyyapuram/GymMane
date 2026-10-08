@@ -506,9 +506,7 @@
   "repsOnlyHint": "纯自重动作，记录时无需输入重量。",
   "useDefaultArt": "恢复为默认动作图",
   "daysShort": "{n}d",
-
   "focusCard": "今日重点",
-
   "autoAdvance": "自动进入下一个动作",
   "keepScreenOn": "训练时保持屏幕常亮",
   "lockWorkout": "锁定屏幕",
@@ -522,19 +520,34 @@
   "autoAdvanceHint": "勾选一个动作的最后一组后，训练会自动进入下一个动作。",
   "autoProgress": "下次自动加重",
   "autoProgressHint": "完成全部次数后，下次训练自动增加 {w}。",
-  "@autoProgressHint": { "placeholders": { "w": { "type": "String" } } },
-
+  "@autoProgressHint": {
+    "placeholders": {
+      "w": {
+        "type": "String"
+      }
+    }
+  },
   "placePlates": "杠铃片和杠铃杆",
   "platesAll": "全部可用",
   "platesOwned": "{n} 种",
-  "@platesOwned": { "placeholders": { "n": { "type": "int" } } },
+  "@platesOwned": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "platePairs": "对数",
   "plateAchievable": "最接近可加到：{w}",
-  "@plateAchievable": { "placeholders": { "w": { "type": "String" } } },
-
+  "@plateAchievable": {
+    "placeholders": {
+      "w": {
+        "type": "String"
+      }
+    }
+  },
   "autoWarmup": "先做热身组",
   "autoWarmupHint": "开始训练时自动加入热身组。",
-
   "trainReminder": "训练提醒",
   "trainReminderHint": "在你安排了计划的日子，按这个时间提醒你。",
   "reminderExactTime": "精确时间",
@@ -544,24 +557,18 @@
   "notifTrainChannelWhy": "在你安排训练的日子提醒你。",
   "notifTrainTitle": "该训练了",
   "notifTrainBody": "你的训练计划在等你。",
-
   "planIntro": "只用这份清单里的动作，帮我做一份训练计划。",
   "planFormat": "只用 JSON 回答，格式如下：",
   "planNothing": "该文件中的动作都不在你的动作库里",
   "planFailed": "无法读取该训练计划文件",
-
   "routineGroup": "分组",
   "newGroup": "新建分组",
   "noGroup": "不分组",
   "groupNameHint": "推 / 拉 / 腿，5×5…",
-
   "filters": "筛选",
-
   "setsPlannedHint": "为每个动作选好组数，训练开始时就已经排好。",
-
   "nextTime": "下次",
   "nextHold": "保持重量，直到完成全部次数",
-
   "bgPhoto": "你的照片",
   "bgPhotoPick": "选择照片",
   "bgPhotoChange": "更换照片",
@@ -571,24 +578,39 @@
   "dimMedium": "中",
   "dimStrong": "重",
   "bgPhotoHint": "照片在最底层，会调暗以保证界面清晰。",
-
   "reminderSmart": "智能",
   "reminderFixed": "固定时间",
   "reminderSmartHint": "按你实际训练的日子和时间提醒；当天已经练过就不再打扰。",
   "reminderSmartEmpty": "再多记录几次训练，它就会学到你的规律。",
   "habitFocus": "你在{day}常练的",
-  "@habitFocus": { "placeholders": { "day": { "type": "String" } } },
-
+  "@habitFocus": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
   "duplicateRoutine": "复制训练计划",
   "copySuffix": "{name}（副本）",
-  "@copySuffix": { "placeholders": { "name": { "type": "String" } } },
+  "@copySuffix": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "saveAsRoutine": "保存为训练计划",
   "savedAsRoutine": "已保存为训练计划",
-
   "templates": "现成计划",
   "templatesHint": "经典训练计划，用你自己的动作库拼成。之后都能改。",
   "templateAdded": "已加入 {n} 个训练计划",
-  "@templateAdded": { "placeholders": { "n": { "type": "int" } } },
+  "@templateAdded": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "tplFullbody": "每周三次全身训练，新手从这里开始。",
   "tplPpl": "推、拉、腿，每周三天或六天。",
   "tplUpperlower": "上肢和下肢，每周四天。",
@@ -596,19 +618,28 @@
   "tplStartingstrength": "每次都练深蹲，两个训练日交替。",
   "tplHome": "只需要一根单杠和地板。",
   "dayCount": "{n} 天",
-  "@dayCount": { "placeholders": { "n": { "type": "int" } } },
-
+  "@dayCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "logRpe": "记录用力程度（RPE）",
   "rpeHint": "10 表示一次也做不动了，8 表示还能再做两次。",
-
   "superset": "超级组",
   "supersetLink": "与下一个动作相连",
   "supersetHint": "相连的动作之间不休息，直接进入下一个。",
-
   "aiRoutine": "用 AI 生成计划",
   "aiIntro": "GymMane 不会和任何 AI 通信。你把动作清单导出，粘贴给你惯用的助手，再把它的回答导回来。手机不会自己往外发任何东西。",
   "aiMissing": "有 {n} 个名称不在你的动作库里",
-  "@aiMissing": { "placeholders": { "n": { "type": "int" } } },
+  "@aiMissing": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "importApps": "支持哪些 app",
   "importOtherCsv": "任何含日期、动作、次数和重量的 CSV",
   "importAskApp": "需要其他 app？告诉我",
@@ -710,7 +741,6 @@
   "deletePhotosTitle": "删除 {n} 张照片？",
   "coverLabel": "封面",
   "removeCover": "移除封面",
-
   "startTitle": "开始训练",
   "logTitle": "记录训练",
   "logHint": "没有计时器，只要填上你做过的内容。",
@@ -720,9 +750,7 @@
   "plannedRoutine": "已安排",
   "logWorkoutAction": "记录一次训练",
   "logging": "记录中",
-
   "placesLabel": "我的场所",
-
   "undo": "撤销",
   "deleteSet": "删除这一组",
   "setDeleted": "已删除这一组",
@@ -753,7 +781,6 @@
   "moreOptions": "更多选择",
   "suggestInWorkouts": "在快速训练中推荐",
   "suggestInWorkoutsHint": "关闭后不会出现在为你挑选的动作里，但仍可手动添加。",
-
   "onbPlaceTitle": "你在哪里训练？",
   "onbPlaceWhy": "选出你训练的所有地点。我们只推荐你在每个地点能做的动作。",
   "onbPlaceGear": "那里有哪些器材？",
@@ -776,7 +803,6 @@
   "saveChanges": "保存修改",
   "noStepsYet": "还没有步骤。写下你自己的做法，方便以后回顾。",
   "addSteps": "写下步骤",
-
   "setTypeRestPause": "休息暂停",
   "setTypeNormalInfo": "普通组，计入训练量和个人纪录。",
   "setTypeWarmupInfo": "用于热身的轻重量组，不计入训练量和个人纪录。",
@@ -810,7 +836,6 @@
   "importAction": "导入",
   "showFormat": "查看格式",
   "shareAsFile": "以文件分享",
-
   "recoveryTab": "恢复",
   "recoveryOverall": "身体已恢复 {pct}%",
   "recoveryAllFresh": "全部恢复了，今天练什么都可以。",
@@ -820,23 +845,18 @@
   "recoveryHint": "点一块肌肉查看它的恢复程度。越近的训练组影响越大，越吃力的组（按 RPE）影响更大。",
   "recoveryPct": "已恢复 {pct}%",
   "readyInHours": "约 {h} 小时后恢复",
-
   "tplAbcd": "四天：胸+三头、背+二头、腿、肩+腹。",
   "tplAbcde": "五天，每天一个部位：胸、背、腿、肩、手臂。",
-
   "elapsedCaps": "已用时",
   "tapToSkip": "点按跳过",
-
   "screenLocked": "屏幕已锁定",
   "lockedHint": "长按顶部的指纹图标即可解锁",
-
   "liveDoneSet": "完成这一组",
   "liveSkipRest": "跳过休息",
   "livePause": "暂停",
   "liveResume": "继续",
   "liveNext": "下一个",
   "liveUpNext": "下一个：{name}",
-
   "stickerOpen": "分享到照片上",
   "stickerNoPhoto": "不用照片",
   "stickerWorkout": "训练",
@@ -845,32 +865,25 @@
   "stickerHint": "拖动来移动，双指缩放或旋转",
   "stickerSaved": "已保存到相册",
   "stickerWeek": "本周",
-
   "getReady": "准备",
-
   "stickerGallery": "相册",
   "stickerCamera": "相机",
   "shareIntroTitle": "分享这个计划",
   "shareIntroBody": "发给你的伴侣、朋友或家人。他们会收到一个小文件，用 GymMane 打开，一点就能加入，组数和重量都在。",
   "removedFromRoutine": "已从计划中移除",
-
   "radarTitle": "最近 30 天",
   "radarHint": "看看哪些部位需要多练",
   "radarEmpty": "练几天就能看到你的均衡情况",
   "radarBalanced": "目前很均衡",
   "radarFocus": "需要多练：{list}",
-
   "countdownReady": "准备",
   "countdownSkip": "点一下立即开始",
   "countdownSetting": "开始前倒计时",
-
   "effortSetting": "记录每组强度",
   "effortHint": "RPE：10 表示一次都做不动了，8 表示还能再做两次。RIR 表示还剩几次。记录后，估算 1RM 会使用 RPE 表。",
   "rirHint": "0 表示一次都做不动了，2 表示还能再做两次。",
   "addWeekWidget": "添加本周小组件",
-
   "gamificationSetting": "勋章和等级",
-
   "repCount": "{n, plural, =1{{n} 次} other{{n} 次}}",
   "prBestSet": "最佳一组",
   "weekStartSetting": "每周开始于",
@@ -1030,5 +1043,30 @@
   "trainReminderRowHint": "训练日提醒你。",
   "alarmSoundRowHint": "休息结束时的声音。",
   "alarmStyleRowHint": "静音模式下是否响铃。",
-  "recommendedRowHint": "首页推荐的动作。"
+  "recommendedRowHint": "首页推荐的动作。",
+  "nutrition": "Nutrition",
+  "nutritionEntry": "Meals, macros, grocery list",
+  "nutritionPlan": "Plan",
+  "nutritionTrend": "Trend",
+  "nutritionGrocery": "Grocery",
+  "nutritionAvg14": "14-day moving average",
+  "nutritionNeedDays": "Need {n} more logged days",
+  "@nutritionNeedDays": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "nutritionBandRecomp": "In the recomp band (±0.4 kg): change nothing.",
+  "nutritionBandCut": "Down >0.5 kg: consider the 1,900 fallback.",
+  "nutritionBandGain": "Up >0.5 kg: if strength is up, accept it.",
+  "nutritionBandUnknown": "Single days are noise — only this average counts.",
+  "nutritionWeighHint": "Today kg (before food)",
+  "nutritionLog": "Log",
+  "nutritionGroceryTitle": "14-day plan quantities",
+  "nutritionSwitchFallback": "Switch 1800 ↔ 1900 fallback",
+  "nutritionMacroTargets": "Macro targets",
+  "nutritionPlanNote": "Grams are raw/dry. Oil is weighed. Steppers edit the plan itself.",
+  "nutritionFibre": "Fibre"
 }

@@ -14,6 +14,7 @@ import '../models/exercise.dart';
 import '../models/live_session.dart';
 import '../models/measure.dart';
 import '../models/note.dart';
+import '../models/nutrition.dart';
 import '../models/place.dart';
 import '../models/profile.dart';
 import '../models/progress_shot.dart';
@@ -36,6 +37,7 @@ part 'library_state.dart';
 part 'measures_state.dart';
 part 'moments_state.dart';
 part 'notes_state.dart';
+part 'nutrition_state.dart';
 part 'places_state.dart';
 part 'routines_state.dart';
 part 'settings_state.dart';
@@ -45,7 +47,7 @@ part 'tools_state.dart';
 part 'workout_state.dart';
 
 class FitState extends FitCore
-    with ToolsState, LibraryState, SettingsState, NotesState, PlacesState, MeasuresState, MomentsState, TimelineState, StatsState, AwardsState, RoutinesState, WorkoutState {
+    with ToolsState, LibraryState, SettingsState, NotesState, PlacesState, MeasuresState, NutritionState, MomentsState, TimelineState, StatsState, AwardsState, RoutinesState, WorkoutState {
   void loadFromStore() {
     final data = withMergedExercises(Store.instance.load());
     _loading = true;
@@ -107,6 +109,7 @@ class FitState extends FitCore
         ..addAll(((data['bodyweight'] as List?) ?? [])
             .map((e) => BodyweightEntry.fromJson((e as Map).cast<String, dynamic>())));
       _loadMeasures(data);
+      loadNutrition(data);
       _loadShots(data);
       awards
         ..clear()
@@ -126,6 +129,7 @@ class FitState extends FitCore
     _stampMemberSince();
     _seedCalculatorsFromProfile();
     _loading = false;
+    seedNutritionIfEmpty();
     refreshAwards(silent: true);
     pendingAwards.clear();
     if (gamification) pendingAwards.addAll(unseenAwards);
@@ -418,6 +422,7 @@ class FitState extends FitCore
         'awards': awards.map((k, v) => MapEntry(k, v.toIso8601String())),
         'awardsSeen': awardsSeen.toList(),
         'moments': moments.map((m) => m.toJson()).toList(),
+        'nutrition': nutritionToJson(),
         'photoEvery': photoIntervalDays,
         'bodyTl': bodyTimeline,
         if (session != null && !session!.complete) ...{
@@ -570,6 +575,7 @@ class FitState extends FitCore
       ..addAll(((map['bodyweight'] as List?) ?? [])
           .map((e) => BodyweightEntry.fromJson((e as Map).cast<String, dynamic>())));
     _loadMeasures(map);
+    loadNutrition(map);
     _loadShots(map, restored: restoredShots);
     _loadAwards(map);
     _loadMoments(map, restored: restoredMoments);

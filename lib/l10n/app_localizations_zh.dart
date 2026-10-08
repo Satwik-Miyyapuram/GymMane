@@ -3233,6 +3233,62 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get recommendedRowHint => '首页推荐的动作。';
+
+  @override
+  String get nutrition => 'Nutrition';
+
+  @override
+  String get nutritionEntry => 'Meals, macros, grocery list';
+
+  @override
+  String get nutritionPlan => 'Plan';
+
+  @override
+  String get nutritionTrend => 'Trend';
+
+  @override
+  String get nutritionGrocery => 'Grocery';
+
+  @override
+  String get nutritionAvg14 => '14-day moving average';
+
+  @override
+  String nutritionNeedDays(String n) {
+    return 'Need $n more logged days';
+  }
+
+  @override
+  String get nutritionBandRecomp => 'In the recomp band (±0.4 kg): change nothing.';
+
+  @override
+  String get nutritionBandCut => 'Down >0.5 kg: consider the 1,900 fallback.';
+
+  @override
+  String get nutritionBandGain => 'Up >0.5 kg: if strength is up, accept it.';
+
+  @override
+  String get nutritionBandUnknown => 'Single days are noise — only this average counts.';
+
+  @override
+  String get nutritionWeighHint => 'Today kg (before food)';
+
+  @override
+  String get nutritionLog => 'Log';
+
+  @override
+  String get nutritionGroceryTitle => '14-day plan quantities';
+
+  @override
+  String get nutritionSwitchFallback => 'Switch 1800 ↔ 1900 fallback';
+
+  @override
+  String get nutritionMacroTargets => 'Macro targets';
+
+  @override
+  String get nutritionPlanNote => 'Grams are raw/dry. Oil is weighed. Steppers edit the plan itself.';
+
+  @override
+  String get nutritionFibre => 'Fibre';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -6481,4 +6537,60 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get recommendedRowHint => '首頁推薦的動作。';
+
+  @override
+  String get nutrition => 'Nutrition';
+
+  @override
+  String get nutritionEntry => 'Meals, macros, grocery list';
+
+  @override
+  String get nutritionPlan => 'Plan';
+
+  @override
+  String get nutritionTrend => 'Trend';
+
+  @override
+  String get nutritionGrocery => 'Grocery';
+
+  @override
+  String get nutritionAvg14 => '14-day moving average';
+
+  @override
+  String nutritionNeedDays(String n) {
+    return 'Need $n more logged days';
+  }
+
+  @override
+  String get nutritionBandRecomp => 'In the recomp band (±0.4 kg): change nothing.';
+
+  @override
+  String get nutritionBandCut => 'Down >0.5 kg: consider the 1,900 fallback.';
+
+  @override
+  String get nutritionBandGain => 'Up >0.5 kg: if strength is up, accept it.';
+
+  @override
+  String get nutritionBandUnknown => 'Single days are noise — only this average counts.';
+
+  @override
+  String get nutritionWeighHint => 'Today kg (before food)';
+
+  @override
+  String get nutritionLog => 'Log';
+
+  @override
+  String get nutritionGroceryTitle => '14-day plan quantities';
+
+  @override
+  String get nutritionSwitchFallback => 'Switch 1800 ↔ 1900 fallback';
+
+  @override
+  String get nutritionMacroTargets => 'Macro targets';
+
+  @override
+  String get nutritionPlanNote => 'Grams are raw/dry. Oil is weighed. Steppers edit the plan itself.';
+
+  @override
+  String get nutritionFibre => 'Fibre';
 }
