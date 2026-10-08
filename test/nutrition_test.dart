@@ -62,13 +62,15 @@ void main() {
         closeTo(fit.plannedTotals.protein, 0.01));
   });
 
-  test('grocery list aggregates the plan over 14 days', () {
+  test('grocery list defaults to one week', () {
     final fit = fresh();
-    final rows = fit.groceryList(days: 14);
+    final rows = fit.groceryList();
     final chicken = rows.firstWhere((r) => r.food.id == 'chicken');
-    expect(chicken.grams, closeTo(3220, 1)); // 230 g/day × 14
+    expect(chicken.grams, closeTo(1610, 1)); // 230 g/day × 7
     final milk = rows.firstWhere((r) => r.food.id == 'milk');
-    expect(milk.grams, closeTo(10500, 1)); // 750 ml/day × 14
+    expect(milk.grams, closeTo(5250, 1)); // 750 ml/day × 7
+    expect(fit.groceryList(days: 14)
+        .firstWhere((r) => r.food.id == 'chicken').grams, closeTo(3220, 1));
   });
 
   test('14-day moving average and protocol §8 bands', () {

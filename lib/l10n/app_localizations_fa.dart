@@ -3399,7 +3399,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get nutritionLog => 'Log';
 
   @override
-  String get nutritionGroceryTitle => '14-day plan quantities';
+  String get nutritionGroceryTitle => 'This week\'s plan quantities';
 
   @override
   String get nutritionSwitchFallback => 'Switch 1800 ↔ 1900 fallback';

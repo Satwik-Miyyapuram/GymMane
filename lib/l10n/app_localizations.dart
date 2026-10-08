@@ -6115,7 +6115,7 @@ abstract class AppLocalizations {
   /// No description provided for @nutritionGroceryTitle.
   ///
   /// In en, this message translates to:
-  /// **'14-day plan quantities'**
+  /// **'This week's plan quantities'**
   String get nutritionGroceryTitle;
 
   /// No description provided for @nutritionSwitchFallback.

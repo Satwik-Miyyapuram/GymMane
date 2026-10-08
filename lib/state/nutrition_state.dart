@@ -2,7 +2,7 @@ part of 'fit_state.dart';
 
 /// Offline nutrition tracking: a 4-slot meal plan, macro targets, per-day
 /// intake deviations, a 14-day weight moving average with the protocol's
-/// adjustment bands, and a 14-day grocery aggregation.
+/// adjustment bands, and a weekly grocery aggregation.
 ///
 /// Everything lives in the one JSON blob the app already persists, so the
 /// module adds no storage of its own, no network and no dependencies.
@@ -191,7 +191,7 @@ mixin NutritionState on FitCore {
   }
 
   /// One row per ingredient in the plan, scaled to [days] days.
-  List<GroceryRow> groceryList({int days = 14}) {
+  List<GroceryRow> groceryList({int days = 7}) {
     final grams = plannedGrams();
     final rows = <GroceryRow>[];
     for (final e in grams.entries) {
@@ -203,7 +203,7 @@ mixin NutritionState on FitCore {
     return rows;
   }
 
-  String groceryText({int days = 14}) {
+  String groceryText({int days = 7}) {
     final rows = groceryList(days: days);
     final b = StringBuffer('GymMane - $days day grocery list\n');
     for (final r in rows) {

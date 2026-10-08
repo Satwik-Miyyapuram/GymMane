@@ -13,7 +13,7 @@ described in `docs/gymmane-integration-plan.md` (Phase 0–2).
 | File | Purpose |
 |---|---|
 | `lib/models/nutrition.dart` | FoodItem, PlannedItem, MealSlot, MacroTargets, IntakeDay, MacroTotals + the seed set (Recomp Protocol v1.0 foods & 4-slot plan) |
-| `lib/state/nutrition_state.dart` | NutritionState mixin: macro math, plan editing, per-day intake overrides, 14-day weight moving average + §8 band check, 14-day grocery aggregation, JSON persistence |
+| `lib/state/nutrition_state.dart` | NutritionState mixin: macro math, plan editing, per-day intake overrides, 14-day weight moving average + §8 band check, weekly (7-day) grocery aggregation, JSON persistence |
 | `lib/screens/nutrition_screen.dart` | 4-tab screen: Today (intake vs targets), Plan editor, Trend (14-day average), Grocery (shareable list) |
 | `lib/state/fit_state.dart` | wiring: import, part, mixin, load/save hooks |
 | `lib/app/app_shell.dart` | `nutrition` route |

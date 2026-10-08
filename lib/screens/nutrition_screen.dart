@@ -12,7 +12,7 @@ import '../widgets/ui_kit.dart';
 
 /// Offline nutrition: Today (intake vs targets), Plan (edit the four slots),
 /// Trend (14-day weight average and the protocol's adjustment bands) and
-/// Grocery (the plan scaled to 14 days, shareable as text).
+/// Grocery (the plan scaled to one week, shareable as text).
 class NutritionScreen extends StatefulWidget {
   const NutritionScreen({super.key});
 
@@ -488,7 +488,7 @@ class _GroceryTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gc = context.gc;
-    final rows = fit.groceryList(days: 14);
+    final rows = fit.groceryList();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
